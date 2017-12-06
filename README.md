@@ -1,6 +1,8 @@
 401 JS --  Lab 28 Todo
 ===
 
+## David's Description
+
 ## Submission Instructions
   * Work in a fork of this repository
   * Work in a branch on your fork
