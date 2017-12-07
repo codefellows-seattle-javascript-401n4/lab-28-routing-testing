@@ -1,7 +1,7 @@
 {
-  "name": "lab-26-react",
+  "name": "lab-28",
   "version": "1.0.0",
-  "description": "401 JS --  Lab 26 Cowsay ===",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -36,6 +36,7 @@
     "resolve-url-loader": "^2.2.0",
     "sass-loader": "^6.0.6",
     "superagent": "^3.8.1",
+    "uuid": "^3.1.0",
     "webpack": "^3.9.1",
     "webpack-dev-server": "^2.9.5"
   },

@@ -1,36 +1,37 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import './styles/app.scss';
+import './styles/main.scss';
 
-import getData from './logics/getData';
 import Header from './components/header';
-import SearchForm from './components/searchForm';
-import SearchResultList from './components/searchResultList';
+import NoteCreateForm from './components/note-create-form';
+import NoteList from './components/note-list';
+import Note from './components/note-item';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.getData = this.getData.bind(this);
+    this.addNote = this.addNote.bind(this);
     this.state = {
-      redditList: [],
+      notes: [],
     };
   }
 
-  getData(searchFormBoard, searchFormLimit) {
-    const url = `http://www.reddit.com/r/${searchFormBoard}.json?limit=${searchFormLimit}`;
-    getData(url).then((result) => {
-      const redditList = result.body.data.children;
-      this.setState({ redditList });
-    });
+  addNote(opts) {
+    const note = new Note(opts);
+    const {
+      notes,
+    } = this.state;
+    notes.push(note);
+    this.setState({ notes });
   }
 
   render() {
     return (
       <div>
         <Header />
-        <SearchForm getData={this.getData} />
-        <SearchResultList redditList={this.state.redditList} />
+        <NoteCreateForm addNote={this.addNote} />
+        <NoteList noteList={this.state.notes} />
       </div>
     );
   }

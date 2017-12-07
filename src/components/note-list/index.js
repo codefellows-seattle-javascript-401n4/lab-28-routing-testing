@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class SearchResultList extends React.Component {
+class NoteList extends React.Component {
   render() {
     const {
-      redditList,
+      noteList,
     } = this.props;
 
-    const listItems = redditList.map(ele =>
+    const listItems = noteList.map(ele =>
       (
-        <li key={ele.data.id}>
-          <a target="_blank" href={ele.data.url}>{ele.data.title}</a>
-          <p>ups: {ele.data.ups}</p>
+        <li key={ele.id}>
+          <p>{ele.content}</p>
         </li>
       ));
     return (
@@ -20,8 +19,8 @@ class SearchResultList extends React.Component {
   }
 }
 
-SearchResultList.propTypes = {
-  redditList: PropTypes.arrayOf(PropTypes.object).isRequired,
+NoteList.propTypes = {
+  noteList: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default SearchResultList;
+export default NoteList;
