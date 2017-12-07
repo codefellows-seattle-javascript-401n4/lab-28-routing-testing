@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { remove } from 'lodash';
+import { reject } from 'lodash';
 
 import './styles/main.scss';
 
@@ -24,16 +24,16 @@ class App extends React.Component {
     const {
       notes,
     } = this.state;
-    notes.push(note);
-    this.setState({ notes });
+    const newNotes = [...notes, note];
+    this.setState({ notes: newNotes });
   }
 
   deleteNote(id) {
     const {
       notes,
     } = this.state;
-    remove(notes, { id });
-    this.setState({ notes });
+    const newNotes = reject(notes, { id });
+    this.setState({ notes: newNotes });
   }
 
   render() {
