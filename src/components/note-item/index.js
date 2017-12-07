@@ -1,12 +1,34 @@
-import uuid from 'uuid';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Note {
-  constructor(opts) {
-    this.id = uuid();
-    this.editing = opts.editing || false;
-    this.completed = opts.completed || false;
-    this.content = opts.content;
+import Note from '../../state/note';
+
+class NoteItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(e) {
+    this.props.deleteNote(e.target.id);
+  }
+
+  render() {
+    const {
+      note,
+    } = this.props;
+    return (
+      <li>
+        <p>{note.content}</p>
+        <button id={note.id} onClick={this.onClick}>Delete</button>
+      </li>
+    );
   }
 }
 
-export default Note;
+NoteItem.propTypes = {
+  deleteNote: PropTypes.func.isRequired,
+  note: PropTypes.instanceOf(Note).isRequired,
+};
+
+export default NoteItem;
