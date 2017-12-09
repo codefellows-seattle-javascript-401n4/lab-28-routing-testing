@@ -22,19 +22,17 @@ class NoteCreateForm extends React.Component {
         let newNote = new Note(this.noteContents);
         let obj = {};
         obj[newNote.id] = newNote;
-        console.log(newNote);
+
         updateState({
             notes: {
                 ...this.state.notes || null,
                 ...obj
             }
         });
-
-        this.noteContents = '';
     }
 
     caputeNoteInput = (event) => {
-        this.noteContents = event.target.value
+        this.noteContents = event.target.value;
     }
 
     render() {
