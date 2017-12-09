@@ -1,5 +1,6 @@
 import React from 'react';
 import NoteForm from '../note-form';
+import NoteList from '../note-list';
 
 class App extends React.Component{
   constructor(props){
@@ -10,6 +11,7 @@ class App extends React.Component{
     };
 
     this.addNote = this.addNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   }
 
   componentDidUpdate(){
@@ -20,11 +22,21 @@ class App extends React.Component{
     this.setState(prevState => ({notes: [...prevState.notes, newNote]}))
   }
 
+  deleteNote(note){
+    this.setState(prevState => ({
+      notes: prevState.notes.filter(i => i.id !== note.id)
+    }))
+  }
+
   render(){
     return (
       <div>
         <h1> Sup Betches </h1>
         <NoteForm addNote={this.addNote}/>
+        <NoteList 
+          notes={this.state.notes}
+          delete={this.deleteNote}
+        />
       </div>
     )
   }

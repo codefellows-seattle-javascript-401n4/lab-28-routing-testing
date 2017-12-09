@@ -25,6 +25,7 @@ class NoteForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     this.props.addNote(this.state);
+    // this.setState({content:''})
   }
 
 
