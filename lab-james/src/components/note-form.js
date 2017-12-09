@@ -9,7 +9,6 @@ class NoteForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeState = this.changeState.bind(this);
-    this.Note = this.Note.bind(this);
     this.state = {
       noteSubject: '',
       noteContent: ''
@@ -24,7 +23,7 @@ class NoteForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     let note = new Note(this.state.noteSubject, this.state.noteContent);
-    addNote(note);
+    this.props.addNote(note);
   }
 
   render(){
@@ -37,6 +36,7 @@ class NoteForm extends React.Component {
           <label htmlFor="noteContent">Content:
             <input type="text" id="noteContent" onChange={this.changeState}/>
           </label>
+          <input type="submit" value="Submit" />
         </form>
       </div>
     )
