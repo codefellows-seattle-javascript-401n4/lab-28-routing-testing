@@ -1,11 +1,14 @@
-'use strict';
+import uuid from 'uuid';
 
-const uuid = require('uuid/v1');
+class Note {
+  constructor(subject, content){
+    this.id = uuid();
+    this.subject = subject;
+    this.content = content;
+    this.editing = false;
+    this.completed = false;
+  }
 
-let Note = module.exports = function(subject, content){
-  this.id = uuid();
-  this.subject = subject;
-  this.content = content;
-  this.editing = false;
-  this.completed = false;
-};
+}
+
+export default Note;

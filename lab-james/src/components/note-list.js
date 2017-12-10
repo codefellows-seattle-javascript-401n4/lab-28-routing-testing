@@ -1,4 +1,5 @@
 import React from 'react';
+import NoteItem from './note-item.js';
 import PropTypes from 'prop-types';
 
 class NoteList extends React.Component {
@@ -17,10 +18,7 @@ class NoteList extends React.Component {
 
     const listNotes = notes.map( (note, i) => (
       <li key={i}>
-        <p>Note ID: {note.id}</p>
-        <p>Subject: {note.subject}</p>
-        <p>{note.content}</p>
-        <button type="button" onClick={this.handleDelete} data-key={notes.indexOf(note)}>Delete</button>
+        <NoteItem note={note} index={notes.indexOf(note)} deleteNote={this.props.deleteNote}/>
       </li>
     ));
 

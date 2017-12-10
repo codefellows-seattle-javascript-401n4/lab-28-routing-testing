@@ -32,10 +32,7 @@ class App extends React.Component {
       return (
         <div>
           <NoteForm addNote={this.addNote}/>
-          <NoteList
-            notes={this.state.notes}
-            deleteNote={this.deleteNote}
-            />
+          <NoteList notes={this.state.notes} deleteNote={this.deleteNote}/>
         </div>
       )
     }
