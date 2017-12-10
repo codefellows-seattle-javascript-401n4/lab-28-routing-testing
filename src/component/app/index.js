@@ -1,6 +1,7 @@
 import React from 'react';
 import NoteForm from '../note-form';
 import NoteList from '../note-list';
+import uuid from 'uuid/v4';
 
 class App extends React.Component{
   constructor(props){
@@ -19,22 +20,31 @@ class App extends React.Component{
   }
 
   addNote(newNote){
-    this.setState(prevState => ({notes: [...prevState.notes, newNote]}))
+    let note = {
+      ...newNote,
+      id: uuid(),
+      editing: false,
+      completed: false,
+    }
+
+    this.setState(prevState => ({
+      notes: [...prevState.notes, note]
+    }))
   }
 
-  deleteNote(note){
+  deleteNote(noteID){
     this.setState(prevState => ({
-      notes: prevState.notes.filter(i => i.id !== note.id)
+      notes: prevState.notes.filter(i => i.id !== noteID)
     }))
   }
 
   render(){
     return (
       <div>
-        <h1> Sup Betches </h1>
+        <h1> ToDo List </h1>
         <NoteForm addNote={this.addNote}/>
         <NoteList 
-          notes={this.state.notes}
+          allNotes={this.state.notes}
           delete={this.deleteNote}
         />
       </div>

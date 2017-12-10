@@ -1,17 +1,11 @@
 import React from 'react';
-import uuid from 'uuid';
 
 class NoteForm extends React.Component {
   constructor(props){
     super(props);
   
     this.state = {
-      note: {
-        id: uuid(),
-        editing: false,
-        completed: false,
-        content: '',
-      }
+        content: ''
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +19,7 @@ class NoteForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     this.props.addNote(this.state);
-    // this.setState({content:''})
+    this.setState({content:''});
   }
 
 
@@ -37,12 +31,12 @@ class NoteForm extends React.Component {
           placeholder='Enter Note Here'
           type='text'
           name='content'
+          value={this.state.content}
         />
         <button type='submit'> Create Note </button>
       </form>
     )
   }
 }
-
 
 export default NoteForm;

@@ -4,14 +4,18 @@ class NoteList extends React.Component{
   constructor(props){
     super(props);
 
+    this.delete = this.delete.bind(this);
   }
   
+  delete(e){
+    this.props.delete(e.target.id);
+  }
+
   render(){
     return(
       <ul>
-        {this.props.notes.map((note, i) =>
-          <li key={i}>
-            <button onClick={this.props.delete}>X</button>
+        {this.props.allNotes.map((note, i) =>
+          <li id={note.id} key={note.id} onClick={this.delete}>
             {note.content}
           </li>
         )}
