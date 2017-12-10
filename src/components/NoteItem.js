@@ -4,7 +4,9 @@ import {initiate, updateState} from 'share-state';
 
 const NoteItem = ({content, removeItem}) => {
     return(
-        <li onClick={removeItem}>{content}</li>
+        <li>{content}
+            <button onClick={removeItem}>Delete Me</button>
+        </li>
     );
 }
 export default NoteItem;

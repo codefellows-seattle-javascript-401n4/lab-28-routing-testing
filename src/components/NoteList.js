@@ -17,16 +17,13 @@ class NoteList extends React.Component {
 
         updateState({notes: {...localNotes}});
     }
-    renderNotes = () => {
-        console.log("Hello");
-        return <NoteItem note={"hello"} removeNote={() => this.removeNote()}/>;
-    }
+
 
     renderList = () => {
         if (this.state) {
             return Object.keys(this.state.notes).map(key => {
                 let note = this.state.notes[key];
-                return <NoteItem key={key} content={"hello"} removeItem={() => this.removeNote(key)}/>;
+                return <NoteItem key={key} content={note.content} removeItem={() => this.removeNote(key)}/>;
             });
         }
     }
