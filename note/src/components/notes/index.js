@@ -30,7 +30,7 @@ class Notes extends React.Component {
   handleNewNote(note) {
     this.props.app.setState(currentState => ({ notes: [...currentState.notes, note] }));
   }
-console.log();
+
   render() {
     // const totalNotes = this.props.app.state.notes
     //   .reduce((t, note) => t += parseInt(note.amount), 0);
