@@ -17,7 +17,7 @@ class NoteItem extends React.Component {
         console.log(this.state.note);
         return (
           <div id='NoteItem'>
-            <button id='backButton'><Link to="/">Back</Link></button>
+            <Link id='backButton' to="/">Back</Link>
             <table>
               <tbody>
                 <tr>

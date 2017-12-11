@@ -36,9 +36,9 @@ class NoteCreateForm extends React.Component {
         
         return (
             <form id='noteForm' onSubmit={this.createNewNote}>
-                <input placeholder="Note Title" type="text" name="title" onChange={this.handleChange} />
-                <textarea rows="5" cols="20" placeholder="Content" type="text" name="content" onChange={this.handleChange} />
-                <button type="submit">Add Note</button>
+                <input className='createNoteInput' placeholder="Note Title" type="text" name="title" onChange={this.handleChange} />
+                <textarea className='createNoteInput'rows="5" cols="20" placeholder="Content" type="text" name="content" onChange={this.handleChange} />
+                <button className='createNoteInput' id='submitButton' type="submit">Add Note</button>
             </form>
         )
         

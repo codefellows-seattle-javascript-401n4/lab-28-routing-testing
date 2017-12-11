@@ -1,8 +1,6 @@
 import React from 'react';
 
 import NoteForm from './NoteCreateForm';
-import NoteList from './NoteList';
-
 import {saveNote} from '../lib/helpers'
 
 class Notes extends React.Component {

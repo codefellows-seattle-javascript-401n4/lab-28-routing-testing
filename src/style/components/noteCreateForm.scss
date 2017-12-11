@@ -5,9 +5,10 @@
 
 }
 
-input, textarea, button {
+.createNoteInput {
  
   background: rgb(140, 192, 208);
+  color: black bold;
   border: none;
   padding: .5em .5em;
   margin: .3em .3em;
@@ -17,5 +18,9 @@ input, textarea, button {
     &:focus {
      outline-width: 0;
     }
+}
+
+#submitButton {
+  margin-bottom: 1.2em;
 }
 
