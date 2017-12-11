@@ -13,6 +13,7 @@ class App extends React.Component{
 
     this.addNote = this.addNote.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
+    this.editNote = this.editNote.bind(this);
   }
 
   componentDidUpdate(){
@@ -25,17 +26,31 @@ class App extends React.Component{
       id: uuid(),
       editing: false,
       completed: false,
-    }
+    };
 
     this.setState(prevState => ({
-      notes: [...prevState.notes, note]
-    }))
-  }
+      notes: [...prevState.notes, note],
+    }));
+  };
 
   deleteNote(noteID){
     this.setState(prevState => ({
-      notes: prevState.notes.filter(i => i.id !== noteID)
-    }))
+      notes: prevState.notes.filter(note => note.id !== noteID),
+    }));
+  };
+  
+  editNote(newNote){
+    let note = {
+      ...newNote,
+      editing: false,
+      completed: false,
+    };
+    
+    this.deleteNote(newNote.id);
+    
+    this.setState(prevState => ({
+      notes: [...prevState.notes, note],
+    }));
   }
 
   render(){
@@ -46,9 +61,10 @@ class App extends React.Component{
         <NoteList 
           allNotes={this.state.notes}
           delete={this.deleteNote}
+          edit={this.editNote}
         />
       </div>
-    )
+    );
   }
 }
 

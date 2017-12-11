@@ -5,8 +5,8 @@ class NoteForm extends React.Component {
     super(props);
   
     this.state = {
-        content: ''
-    }
+      content: '',
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
