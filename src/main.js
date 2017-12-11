@@ -4,7 +4,7 @@ import './style/main.scss';
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import {BrowserRouter,Route} from 'react-router-dom';
+import {BrowserRouter,Route, Switch} from 'react-router-dom';
 
 import Header from './components/header';
 import Footer from './components/footer';
@@ -53,9 +53,14 @@ class App extends React.Component {
     return (
         <div>
             <Header appTitle="Note App" />
-            <Notes handler={this.addNote}/>
-            <NoteList notes={this.state.notes} handler={this.deleteNote} /> 
-            <Route exact path='/note' component={NoteItem}/>                   
+          <Switch>
+            <Route path='/note' component={NoteItem}/>  
+            <Route exact path='/' component={() =>  
+              <main>
+                <Notes handler={this.addNote}/>
+                <NoteList notes={this.state.notes} handler={this.deleteNote} /> 
+               </main>} />
+          </Switch>         
             <Footer><p>&copy;2017 Paula Mookerjee</p></Footer>
         </div>
     )

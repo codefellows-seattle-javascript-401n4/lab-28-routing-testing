@@ -1,5 +1,6 @@
 import React from 'react';
-
+import ReactDom from 'react-dom';
+import {Link} from 'react-router-dom';
 
 class NoteList extends React.Component {
     
@@ -24,7 +25,7 @@ class NoteList extends React.Component {
               return(
                 <ul>
                   <li key={i}><a onClick={this.deleteNote} data-key={note.id} href="#">Delete</a></li> 
-                  <li key={note.id}><a href='/note'>{note.title}</a></li>
+                  <li key={note.id}><Link to={`/note/${note.title}`}>{note.title}</Link></li>
                 </ul>
               )
             })}               
