@@ -4,7 +4,7 @@
 
 ## Routes
 
-# '/' 
+### '/' 
 
 *App* 
 
@@ -16,7 +16,7 @@ All runtime app state is held and modified here. State data gets initialized by 
 
 *NoteList* - direct component of *App*. Renders the notes from App state. On click of 'Delete' sends note data to *App* to be deleted from App state and local storage. On click of a note, routes to /note.
 
-# '/note/id' 
+### '/note/id' 
 
 *NoteItem* Renders the selected note data in table. Has back button to return to home screen.
 
