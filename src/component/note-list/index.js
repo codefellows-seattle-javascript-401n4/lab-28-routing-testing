@@ -22,16 +22,16 @@ class NoteList extends React.Component{
   editNote(newNote){
     this.props.edit(newNote);
   }
-
+  
   render(){
     return(
-      <ul>
+      <ul className='note-list'>
         {this.props.allNotes.map((note, i) =>
           <li key={note.id}>
             <button className={note.id} onClick={this.delete}> DELETE </button>
             <button className={note.id} onClick={this.showEdit}> EDIT </button>
             {note.content}
-            <EditForm noteID={note.id} edit={this.editNote}/>
+            <EditForm note={note} edit={this.editNote} />
           </li>
           
         )}

@@ -5,16 +5,24 @@ class EditForm extends React.Component{
     super(props);
     
     this.state = {
-      noteID: null,
       content: '',
     };
     
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleForm = this.handleForm.bind(this);
   };
   
   componentWillMount(){
-    this.setState({noteID:this.props.noteID});
+    this.setState({
+      editing:this.props.note.editing,
+      noteID:this.props.note.noteID,
+      showForm:this.props.note.showForm,
+    });
+  }
+  
+  componentDidMount(){
+    console.log('__MOUNTED', this.state);
   }
   
   handleChange(e){
@@ -31,8 +39,11 @@ class EditForm extends React.Component{
     this.setState({content:''});
   }
   
-  render(){
-    return(
+  handleForm(){
+    let form = null;
+    let show = this.state.showForm;
+    console.log('__RENDER__', this.state);
+    if(!show){
       <form className='edit-form' onSubmit={this.handleSubmit}>
         <input
           onChange={this.handleChange}
@@ -42,6 +53,22 @@ class EditForm extends React.Component{
         />
         <button type='submit'> Edit Note </button>
       </form>
+    }
+  }
+  
+  render(){
+    this.handleForm();
+    return(
+      // <form className='edit-form' onSubmit={this.handleSubmit}>
+      //   <input
+      //     onChange={this.handleChange}
+      //     placeholder='Enter Updated Note Here'
+      //     type='text'
+      //     value={this.state.content}
+      //   />
+      //   <button type='submit'> Edit Note </button>
+      // </form>
+      <h1>TEST</h1>
     );
   }
     
