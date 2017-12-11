@@ -20,3 +20,7 @@ All runtime app state is held and modified here. State data gets initialized by 
 
 *NoteItem* Renders the selected note data in table. Has back button to return to home screen.
 
+## Testing
+
+Run `npm test` from root dir
+

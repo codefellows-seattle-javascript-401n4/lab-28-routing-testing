@@ -4,9 +4,18 @@
   "description": "401 JS --  Lab 28 Todo ===",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "watch": "webpack-dev-server --inline --hot",
     "build": "webpack"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/src/test/shim.js",
+      "<rootDir>/src/test/setup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
+    }
   },
   "repository": {
     "type": "git",
@@ -40,6 +49,13 @@
     "webpack-dev-server": "^2.9.7"
   },
   "devDependencies": {
-    "npm-watch": "^0.3.0"
+    "babel-jest": "^21.2.0",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
+    "enzyme-to-json": "^3.2.2",
+    "jest": "^21.2.1",
+    "jest-css-modules": "^1.1.0",
+    "npm-watch": "^0.3.0",
+    "react-test-renderer": "^16.2.0"
   }
 }
