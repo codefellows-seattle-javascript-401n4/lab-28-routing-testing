@@ -18,15 +18,16 @@ export const getNote = (id) => {
         if (note) { resolve( JSON.parse(note)); }
         else { reject("Invalid note id", id); }
     });
-    
 }
 
 export const removeNote = (id) => {
-  localStorage.removeItem(id);
+  let notes = getAllNotes();
+  let updatedNotes = notes.filter(note => {
+    return note.id !== id;
+  })
+  localStorage.setItem("notes", JSON.stringify(updatedNotes));
 }
     
 export const getAllNotes = () => {
-        
   return JSON.parse(localStorage.getItem("notes") || "[]");
- 
 }

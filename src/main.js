@@ -10,6 +10,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import NoteList from './components/NoteList';
 import Notes from './components/Notes';
+import NoteItem from './components/NoteItem';
 
 import {removeNote} from './lib/helpers';
 import {getAllNotes} from './lib/helpers';
@@ -53,7 +54,8 @@ class App extends React.Component {
         <div>
             <Header appTitle="Note App" />
             <Notes handler={this.addNote}/>
-            <NoteList notes={this.state.notes} handler={this.deleteNote} />                    
+            <NoteList notes={this.state.notes} handler={this.deleteNote} /> 
+            <Route exact path='/note' component={NoteItem}/>                   
             <Footer><p>&copy;2017 Paula Mookerjee</p></Footer>
         </div>
     )
