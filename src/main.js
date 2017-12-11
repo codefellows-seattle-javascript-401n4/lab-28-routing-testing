@@ -11,6 +11,7 @@ import Footer from './components/footer';
 import NoteList from './components/NoteList';
 import Notes from './components/Notes';
 import NoteItem from './components/NoteItem';
+import NoteEdit from './components/NoteEdit';
 
 import {removeNote} from './lib/helpers';
 import {getAllNotes} from './lib/helpers';
@@ -55,6 +56,7 @@ class App extends React.Component {
             <Header appTitle="Note App" />
           <Switch>
             <Route path='/note/id' component={NoteItem}/> 
+            <Route path='/node/id/edit' component={NoteEdit}/>
             <Route exact path='/' component={() =>  
               <main>
                 <Notes handler={this.addNote}/>

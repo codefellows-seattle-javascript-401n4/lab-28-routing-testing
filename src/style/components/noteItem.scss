@@ -45,6 +45,17 @@ th, td {
 
 }
 
+#editNote {
+  text-decoration: none;
+  color: blue bold;
+  padding: .5em .5em;
+  background: ivory;
+  border-radius: 5px;
+     &:visited {
+       color: blue;
+     }
+}
+
 Link:hover {
   color: grey;
 }
