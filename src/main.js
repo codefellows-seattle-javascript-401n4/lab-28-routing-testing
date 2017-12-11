@@ -54,7 +54,7 @@ class App extends React.Component {
         <div>
             <Header appTitle="Note App" />
           <Switch>
-            <Route path='/note' component={NoteItem}/>  
+            <Route path='/note/id' component={NoteItem}/> 
             <Route exact path='/' component={() =>  
               <main>
                 <Notes handler={this.addNote}/>

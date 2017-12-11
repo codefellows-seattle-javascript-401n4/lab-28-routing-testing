@@ -24,8 +24,8 @@ class NoteList extends React.Component {
             { notes.map((note, i) => {
               return(
                 <ul>
-                  <li key={i}><a onClick={this.deleteNote} data-key={note.id} href="#">Delete</a></li> 
-                  <li key={note.id}><Link to={`/note/${note.title}`}>{note.title}</Link></li>
+                  <li id='deleteButton'key={i}><a onClick={this.deleteNote} data-key={note.id} href="#">Delete</a></li> 
+                  <li key={note.id}><Link to={`/note/id?${note.id}`}>{note.title}</Link></li>
                 </ul>
               )
             })}               

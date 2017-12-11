@@ -13,11 +13,8 @@ export const saveNote = (note) => {
 
 export const getNote = (id) => {
         
-    return new Promise( (resolve,reject) => {
-        let note = localStorage.getItem(id);
-        if (note) { resolve( JSON.parse(note)); }
-        else { reject("Invalid note id", id); }
-    });
+  let notes = getAllNotes();
+  return notes.filter(note => note.id === id);
 }
 
 export const removeNote = (id) => {

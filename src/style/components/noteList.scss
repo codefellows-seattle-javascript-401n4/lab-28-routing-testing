@@ -1,6 +1,5 @@
 ul {
- display: flex;
- flex-direction: row;
+ @include flex-row;
  padding: .2em 0 0;
  list-style: none;
 
@@ -8,8 +7,21 @@ ul {
 
 li {
   padding: 0 .3em;
+  color: ivory;
 }
 
 a {
   text-decoration: none;
+
+  &:visited {
+    color: ivory;
+  }
+
+  &:hover {
+    color: grey;
+  }
+}
+
+#deleteButton {
+  color: $lightblue;
 }
