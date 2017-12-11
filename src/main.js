@@ -15,6 +15,7 @@ import NoteEdit from './components/NoteEdit';
 
 import {removeNote} from './lib/helpers';
 import {getAllNotes} from './lib/helpers';
+import {updateNote}  from './lib/helpers';
 
 class App extends React.Component {
 
@@ -23,15 +24,21 @@ class App extends React.Component {
 
     this.state = {
       notes: getAllNotes()
-
     }
 
     this.addNote = this.addNote.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
+    this.updateState = this.updateState.bind(this);
+    this.modifyNote = this.modifyNote.bind(this);
   }
 
   componentDidMount() {
     console.log('__STATE__', this.state);
+  }
+
+  updateState() {
+    let notes = getAllNotes();
+    this.setState({notes});
   }
 
   addNote(note) {
@@ -40,8 +47,12 @@ class App extends React.Component {
     this.setState({notes}) 
   }
 
-  deleteNote(id) {
+  modifyNote(note){
+    updateNote(note);
+    this.updateState();
+  }
 
+  deleteNote(id) {
     removeNote(id);    
     let current = this.state.notes;
     let notes = current.filter(note => {
@@ -56,7 +67,7 @@ class App extends React.Component {
             <Header appTitle="Note App" />
           <Switch>
             <Route path='/note/id' component={NoteItem}/> 
-            <Route path='/node/id/edit' component={NoteEdit}/>
+            <Route path='/node/id/edit' component={() => <NoteEdit handler={this.modifyNote}/>}/>
             <Route exact path='/' component={() =>  
               <main>
                 <Notes handler={this.addNote}/>

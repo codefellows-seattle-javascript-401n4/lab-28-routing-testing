@@ -24,6 +24,13 @@ export const removeNote = (id) => {
   })
   localStorage.setItem("notes", JSON.stringify(updatedNotes));
 }
+
+export const updateNote = (updatedNote) => {
+  let current = getAllNotes();
+  let updated = current.filter(note => delete note.id === updatedNote.id)
+  updated.push(updatedNote);
+  localStorage.setItem("notes", JSON.stringify(updated));  
+}
     
 export const getAllNotes = () => {
   return JSON.parse(localStorage.getItem("notes") || "[]");
