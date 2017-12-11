@@ -5,7 +5,10 @@ class EditForm extends React.Component{
     super(props);
     
     this.state = {
-      content: '',
+      id: '',
+      editing: false,
+      completed: false,
+      content: ''
     };
     
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,16 +18,13 @@ class EditForm extends React.Component{
   
   componentWillMount(){
     this.setState({
-      editing:this.props.note.editing,
-      noteID:this.props.note.noteID,
-      showForm:this.props.note.showForm,
-    });
+      id: this.props.note.id,
+      editing: this.props.note.editing,
+      copmleted: this.props.note.completed,
+      content: this.props.note.content,
+    })
   }
-  
-  componentDidMount(){
-    console.log('__MOUNTED', this.state);
-  }
-  
+
   handleChange(e){
     this.setState({content:e.target.value});
   }
@@ -41,9 +41,11 @@ class EditForm extends React.Component{
   
   handleForm(){
     let form = null;
-    let show = this.state.showForm;
+    // let show = this.state.editing;
+    let show = false;
     console.log('__RENDER__', this.state);
-    if(!show){
+    if(show){
+      return(
       <form className='edit-form' onSubmit={this.handleSubmit}>
         <input
           onChange={this.handleChange}
@@ -53,22 +55,16 @@ class EditForm extends React.Component{
         />
         <button type='submit'> Edit Note </button>
       </form>
+      )
     }
+    {console.log('false')};
   }
   
   render(){
-    this.handleForm();
     return(
-      // <form className='edit-form' onSubmit={this.handleSubmit}>
-      //   <input
-      //     onChange={this.handleChange}
-      //     placeholder='Enter Updated Note Here'
-      //     type='text'
-      //     value={this.state.content}
-      //   />
-      //   <button type='submit'> Edit Note </button>
-      // </form>
-      <h1>TEST</h1>
+      <div className='edit-form'>
+        {this.handleForm()}
+      </div>
     );
   }
     
