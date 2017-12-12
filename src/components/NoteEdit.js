@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {getNote} from '../lib/helpers';
+
 
 class NoteEdit extends React.Component{
   
@@ -7,8 +9,10 @@ class NoteEdit extends React.Component{
     super(props);
     
     this.state = {
-      note: getNote(this.props.location.search.slice(1))
+      note: getNote(location.search.slice(1))
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.updateNote = this.updateNote.bind(this);
   }
 
   handleChange(e) {
@@ -21,11 +25,11 @@ class NoteEdit extends React.Component{
       this.props.handler(this.state);
   }
   
- 
-  
   render() {
+    const note = this.state.note[0];
+
     return (
-      <div >
+      <div id='NoteEdit'>
         <table>
         <tbody>
           <tr>
@@ -33,14 +37,13 @@ class NoteEdit extends React.Component{
             <th>Content</th>
           </tr>
           <tr>
-              <button id='submitEdits' type="submit">Update Note</button>
-            <td><input id='editTitle' placeholder="Note Title" type="text" name="title" onChange={this.handleChange}>
-                {this.state.note[0].title}</input></td>
-            <td><textarea id='editContent' rows="5" cols="20" placeholder="Content" type="text" name="content" onChange={this.handleChange}>
-                  {this.state.note[0].content}</textarea></td>
+            <td><input id='editTitle' placeholder='Enter new title' type="text" name="title" onChange={this.handleChange}/></td>
+            <td><textarea id='editContent' placeholder='Enter new content' rows="5" cols="20" type="text" name="content" onChange={this.handleChange}/></td>
           </tr>
         </tbody>
-        </table>       
+        </table> 
+        <button id='submitEdits' type="submit" onSubmit={this.updateNote}>Update Note</button>
+        <Link to={`/note/id?${note.id}`}>Cancel</Link>      
       </div>
     );
   }
@@ -48,3 +51,4 @@ class NoteEdit extends React.Component{
 
   
 export default NoteEdit;
+

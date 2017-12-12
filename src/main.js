@@ -66,8 +66,9 @@ class App extends React.Component {
         <div>
             <Header appTitle="Note App" />
           <Switch>
-            <Route path='/note/id' component={NoteItem}/> 
-            <Route path='/node/id/edit' component={() => <NoteEdit handler={this.modifyNote}/>}/>
+            <Route exact path='/note/edit/id' component={() => 
+              <NoteEdit location={this.props.location} handler={this.modifyNote}/>}/> 
+            <Route exact path='/note/id' component={NoteItem}/> 
             <Route exact path='/' component={() =>  
               <main>
                 <Notes handler={this.addNote}/>
