@@ -10,7 +10,7 @@ class NoteList extends React.Component{
     constructor(props){
         super(props);
         this.deleteNote = this.deleteNote.bind(this);
-        // this.handleEdit = this.handleEdit.bind(this);
+        // this.handleUpdate = this.handleUpdate.bind(this);
     }
 
     deleteNote(e){
@@ -21,13 +21,10 @@ class NoteList extends React.Component{
         });
         this.props.handler(notes); 
     }
-    // handleDoubleClick(e){
-    //     this.setState()
+    // handleUpdate(props){
+    //     his.props.app.setState(???????)
     // }
-    // handleEdit(){
-    //     let content = this.props.content;
-    //     this.setState({ content })
-    // }
+   
     render() {
         return (
             <div className="notesList">{ 
@@ -45,6 +42,7 @@ class NoteList extends React.Component{
                                         <tr key={i}>
                                             <td><a onClick={this.deleteNote} data-key={note.id} href="#">x</a></td>
                                             <td>{note.content}</td>
+                                            {/* <td EditNote handler={this.handleUpdate} app={this.props.app}/> */}
                                         </tr>
                                     )
                                 }

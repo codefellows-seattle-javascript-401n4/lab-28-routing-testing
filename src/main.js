@@ -28,9 +28,7 @@ class App extends React.Component{
     }
 
     updateNotes(props) {
-        let notes = this.state.noteArray;
-        notes.push(props);
-        this.setState({notes});
+        this.setState(currentState => ({noteArray: [...currentState.noteArray, props]}));
         console.log('after new note pushed:', this.state);  
 
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import NoteForm from './note-form';
+// import NoteForm from './note-form';
 
 class EditNote extends React.Component{
     constructor(props){
@@ -20,10 +20,10 @@ handleSubmint(e){
 }
 render(){
     return (
-            <div>
+            <form>
                 <input name ='content' onChange={this.editNote} placeholder={this.props.content}></input>
                 <button type="submit" onSubmit = {this.handleSubmit}>Submit Note</button>
-            </div>
+            </form>
     )
 }
 }
