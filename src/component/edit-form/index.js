@@ -1,4 +1,5 @@
 import React from 'react';
+import './edit-form.scss'
 
 class EditForm extends React.Component{
   constructor(props){

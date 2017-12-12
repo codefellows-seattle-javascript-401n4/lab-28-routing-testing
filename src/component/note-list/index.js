@@ -1,5 +1,6 @@
 import React from 'react';
 import EditForm from '../edit-form';
+import './note-list.scss';
 
 class NoteList extends React.Component{
   constructor(props){
@@ -33,7 +34,7 @@ class NoteList extends React.Component{
           <li key={note.id}>
             <button className={note.id} onClick={this.delete}> DELETE </button>
             <button className={note.id} onClick={this.showEdit}> EDIT </button>
-            {note.content}
+            <span> {note.content} </span>
             <EditForm note={note} edit={this.editNote} />
           </li>
           

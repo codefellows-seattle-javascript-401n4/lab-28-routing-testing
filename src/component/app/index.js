@@ -3,6 +3,8 @@ import NoteForm from '../note-form';
 import NoteList from '../note-list';
 import uuid from 'uuid/v4';
 
+import './app.scss';
+
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -57,7 +59,7 @@ class App extends React.Component{
 
   render(){
     return (
-      <div>
+      <div className='app'>
         <h1> ToDo List </h1>
         <NoteForm addNote={this.addNote}/>
         <NoteList 
