@@ -3,7 +3,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
-
+import NoteCreateForm from './components/note-create-form';
+import NoteList from './components/note-list';
 
 class App extends React.Component{
   constructor(props){
@@ -17,7 +18,23 @@ class App extends React.Component{
   }
   render(){
     return (
-      <div>
+      <div className="app">
+      <header>
+        <nav>
+          <ul>
+            <li><a href="/note_list">Notes</a></li>
+            <li><a href="/note_create_form">Create a Note</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main className="main-content">
+        <BrowserRouter>
+          <section>
+            <Route exact path="/note_list" component={NoteList} />
+            <Route exact path="/note_create_form" component={NoteCreateForm} />
+          </section>
+        </BrowserRouter>
+      </main>
       </div>
     )
   }
