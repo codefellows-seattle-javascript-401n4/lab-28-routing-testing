@@ -16,9 +16,12 @@ class NoteList extends React.Component{
   
   showEdit(e){
     e.preventDefault();
-
+    let newState = [...this.props.allNotes].map(note=> {
+      return note.id === e.target.className ? note.editing = true : note.editing = false;
+    })
+    this.props.updateState(newState);
   }
-  
+
   editNote(newNote){
     this.props.edit(newNote);
   }

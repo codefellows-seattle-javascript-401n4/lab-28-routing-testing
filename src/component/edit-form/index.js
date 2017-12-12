@@ -34,6 +34,7 @@ class EditForm extends React.Component{
     let newNote = {
       id: this.state.id,
       content: this.state.content,
+      editing: this.state.editing,
     };
     this.props.edit(newNote);
     this.setState({content:''});

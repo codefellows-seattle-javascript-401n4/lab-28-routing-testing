@@ -14,6 +14,7 @@ class App extends React.Component{
     this.addNote = this.addNote.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
     this.editNote = this.editNote.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
   componentDidUpdate(){
@@ -42,13 +43,15 @@ class App extends React.Component{
   editNote(newNote){
     let updatedNote = {
       ...newNote,
-      editing: false,
       completed: false,
     };
-    let oldState = [...this.state.notes];
-    let newState = oldState.map(note => {
+    let newState = [...this.state.notes].map(note => {
       return note.id === updatedNote.id ? note = updatedNote : note = note;
     });
+    this.updateState(newState);
+  }
+
+  updateState(newState){
     this.setState({notes: newState});
   }
 
@@ -61,6 +64,7 @@ class App extends React.Component{
           allNotes={this.state.notes}
           delete={this.deleteNote}
           edit={this.editNote}
+          updateState={this.updateState}
         />
       </div>
     );
