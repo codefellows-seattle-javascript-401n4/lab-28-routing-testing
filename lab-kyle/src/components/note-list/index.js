@@ -1,4 +1,5 @@
 'use strict';
+import './_note-list.scss';
 
 import React from 'react';
 
