@@ -14,10 +14,16 @@ class NoteList extends React.Component {
       <div>
         <ul>
           {this.props.notes.map((note, i) => {
+            return(
+            <li key={i}>
             <NoteItem
               key={i}
               note={note}
+              deleteNote={this.props.deleteNote}
+              updateNote={this.props.updateNote}
               />
+              </li>
+            )
           })}
         </ul>
       </div>

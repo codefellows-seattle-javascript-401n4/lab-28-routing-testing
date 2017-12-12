@@ -15,7 +15,8 @@ class CreateNoteComp extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    this.props.handeleSubmit(this.state);
+    // this.props.createNote(this.state);
+    this.props.createNote(Object.assign({}, this.state))
   }
 
   handleChange(e) {
@@ -25,16 +26,17 @@ class CreateNoteComp extends React.Component {
 
   render() {
     return(
-      <form onSubmit={this.handeleSubmit}>
+      <form onSubmit={this.handleSubmit}>
        
        <input 
         type='text' 
         name='content'
+        placeholder='Make a Note'
         value={this.state.content}
         onChange={this.handleChange}
         />
         
-        <button type='submit'> + </ button>
+        <button type='submit'> Add Note </ button>
       </form>
     )
   }

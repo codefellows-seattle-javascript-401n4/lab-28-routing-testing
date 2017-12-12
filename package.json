@@ -2,9 +2,10 @@
   "name": "lab-28-routing-testing",
   "version": "1.0.0",
   "description": "401 JS --  Lab 28 Todo ===",
-  "main": "webpack.config.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "webpack-dev-server --inline --hot",
+    "build": "webpack --optimize-minimize"
   },
   "repository": {
     "type": "git",
