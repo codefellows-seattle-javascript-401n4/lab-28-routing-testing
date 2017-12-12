@@ -11,22 +11,32 @@ class NoteEdit extends React.Component{
     this.state = {
       note: getNote(location.search.slice(1))
     }
-    this.handleChange = this.handleChange.bind(this);
+    this.handleTitle = this.handleTitle.bind(this);
+    this.handleContent = this.handleContent.bind(this);    
     this.updateNote = this.updateNote.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({[e.target.name]:e.target.value, editing: true})
+  handleTitle(e) {
+    const note = this.state.note;
+    note.title = e.target.value;
+    this.setState({note});    
+  }
+
+  handleContent(e) {
+    const note = this.state.note;
+    note.content = e.target.value;
+    this.setState({note});
   }
   
   updateNote(e) {
       e.preventDefault();
       this.setState({completed: true, editing: true});
-      this.props.handler(this.state);
+      console.log('note AFTER', this.state.note)
+      this.props.handler(this.state.note);
   }
   
   render() {
-    const note = this.state.note[0];
+    const note = this.state.note;
 
     return (
       <div id='NoteEdit'>
@@ -37,12 +47,12 @@ class NoteEdit extends React.Component{
             <th>Content</th>
           </tr>
           <tr>
-            <td><input id='editTitle' placeholder='Enter new title' type="text" name="title" onChange={this.handleChange}/></td>
-            <td><textarea id='editContent' placeholder='Enter new content' rows="5" cols="20" type="text" name="content" onChange={this.handleChange}/></td>
+            <td><input id='editTitle' placeholder='Enter new title' type="text" name="title" onChange={this.handleTitle}/></td>
+            <td><textarea id='editContent' placeholder='Enter new content' rows="5" cols="20" type="text" name="content" onChange={this.handleContent}/></td>
           </tr>
         </tbody>
         </table> 
-        <button id='submitEdits' type="submit" onSubmit={this.updateNote}>Update Note</button>
+        <button id='submitEdits' type="submit" onClick={this.updateNote}><Link to={`/note/id?${this.state.note.id}`}>Update Note</Link></button>
         <Link to={`/note/id?${note.id}`}>Cancel</Link>      
       </div>
     );
@@ -51,4 +61,5 @@ class NoteEdit extends React.Component{
 
   
 export default NoteEdit;
+
 

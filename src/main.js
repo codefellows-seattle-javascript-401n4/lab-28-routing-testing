@@ -48,6 +48,8 @@ class App extends React.Component {
   }
 
   modifyNote(note){
+    console.log('in the modify note ')
+    
     updateNote(note);
     this.updateState();
   }

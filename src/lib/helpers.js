@@ -14,7 +14,8 @@ export const saveNote = (note) => {
 export const getNote = (id) => {
         
   let notes = getAllNotes();
-  return notes.filter(note => note.id === id);
+  let note = notes.filter(note => note.id === id);
+  return note[0];
 }
 
 export const removeNote = (id) => {
