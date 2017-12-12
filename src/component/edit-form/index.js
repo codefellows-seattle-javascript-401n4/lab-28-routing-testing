@@ -32,7 +32,7 @@ class EditForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     let newNote = {
-      id: this.state.noteID,
+      id: this.state.id,
       content: this.state.content,
     };
     this.props.edit(newNote);
@@ -42,22 +42,20 @@ class EditForm extends React.Component{
   handleForm(){
     let form = null;
     // let show = this.state.editing;
-    let show = false;
-    console.log('__RENDER__', this.state);
+    let show = true;
     if(show){
       return(
-      <form className='edit-form' onSubmit={this.handleSubmit}>
-        <input
-          onChange={this.handleChange}
-          placeholder='Enter Updated Note Here'
-          type='text'
-          value={this.state.content}
-        />
-        <button type='submit'> Edit Note </button>
-      </form>
+        <form className='edit-form' onSubmit={this.handleSubmit}>
+          <input
+            onChange={this.handleChange}
+            placeholder='Enter Updated Note Here'
+            type='text'
+            value={this.state.content}
+          />
+          <button type='submit'> Edit Note </button>
+        </form>
       )
     }
-    {console.log('false')};
   }
   
   render(){

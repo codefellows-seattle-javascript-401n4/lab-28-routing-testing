@@ -40,17 +40,16 @@ class App extends React.Component{
   };
   
   editNote(newNote){
-    let note = {
+    let updatedNote = {
       ...newNote,
       editing: false,
       completed: false,
     };
-    
-    this.deleteNote(newNote.id);
-    
-    this.setState(prevState => ({
-      notes: [...prevState.notes, note],
-    }));
+    let oldState = [...this.state.notes];
+    let newState = oldState.map(note => {
+      return note.id === updatedNote.id ? note = updatedNote : note = note;
+    });
+    this.setState({notes: newState});
   }
 
   render(){

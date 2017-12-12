@@ -16,7 +16,7 @@ class NoteList extends React.Component{
   
   showEdit(e){
     e.preventDefault();
-    console.log('__EDIT__');
+
   }
   
   editNote(newNote){
