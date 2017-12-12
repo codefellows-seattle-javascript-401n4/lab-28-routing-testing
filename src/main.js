@@ -55,7 +55,7 @@ class App extends React.Component{
               <Navbar />
                 <main>
                     <Route exact path='/editor' component={() => <NoteForm handler={this.updateNotes}/>} /> 
-                    <Route exact path='/' component={()=> <NoteList app={this.app()} handler={this.deleteNote}  />} />
+                    <Route exact path='/' component={()=> <NoteList handler = {this.deleteNote} app={this.app()} />} />
                 </main>
               <Footer /> 
             </div>   
