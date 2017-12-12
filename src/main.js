@@ -40,7 +40,7 @@ class App extends React.Component {
 
     updateNote(note) {
         let notes = this.state.notes.map(item => {
-          return item.id === notes.id ? note : item
+          return item.id === note.id ? note : item
         })
         this.setState({ notes })
       }
@@ -55,7 +55,7 @@ class App extends React.Component {
             <div>
                 <Header appTitle="React App" />
                 
-                <CreateNoteComp createNote={this.createNote} />
+                <CreateNoteComp handler={this.createNote} />
 
                 <NoteList notes={this.state.notes} 
                     updateNote={this.updateNote}

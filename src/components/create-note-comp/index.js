@@ -5,7 +5,7 @@ import React from 'react';
 class CreateNoteComp extends React.Component {
   constructor(props) {
     super(props) 
-    this.state = {
+    this.state = this.props.note || {
       content: ''
     }
 
@@ -15,8 +15,7 @@ class CreateNoteComp extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    // this.props.createNote(this.state);
-    this.props.createNote(Object.assign({}, this.state))
+    this.props.handler(Object.assign({}, this.state))
   }
 
   handleChange(e) {

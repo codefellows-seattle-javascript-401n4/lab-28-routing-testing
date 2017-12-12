@@ -18,8 +18,9 @@ class NoteItem extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleUpdate(e) {
+  handleUpdate(note) {
     this.setState(state => ({ editing: !state.editing }))
+    this.props.updateNote(note);
   }
 
   handleDelete(e) {
@@ -36,12 +37,7 @@ class NoteItem extends React.Component {
         {renderIf(
           this.state.editing,
           <div>
-            <input
-              name='update'
-              type='text'
-              value={this.state.content}
-              onChange={this.handleChange}
-            />
+            <CreateNoteComp note={this.props.note} handler={this.handleUpdate} />
           </div>
         )}
 
