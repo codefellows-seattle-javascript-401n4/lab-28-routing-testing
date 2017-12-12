@@ -31,7 +31,6 @@ class NoteEdit extends React.Component{
   updateNote(e) {
       e.preventDefault();
       this.setState({completed: true, editing: true});
-      console.log('note AFTER', this.state.note)
       this.props.handler(this.state.note);
   }
   
@@ -53,7 +52,7 @@ class NoteEdit extends React.Component{
         </tbody>
         </table> 
         <button id='submitEdits' type="submit" onClick={this.updateNote}><Link to={`/note/id?${this.state.note.id}`}>Update Note</Link></button>
-        <Link to={`/note/id?${note.id}`}>Cancel</Link>      
+        <Link id='Cancel' to={`/note/id?${note.id}`}>Cancel</Link>      
       </div>
     );
   }
