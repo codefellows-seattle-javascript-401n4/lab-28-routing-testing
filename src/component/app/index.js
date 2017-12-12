@@ -1,0 +1,76 @@
+import React from 'react';
+import NoteForm from '../note-form';
+import NoteList from '../note-list';
+import uuid from 'uuid/v4';
+
+import './app.scss';
+
+class App extends React.Component{
+  constructor(props){
+    super(props);
+
+    this.state = {
+      notes: [],
+    };
+
+    this.addNote = this.addNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
+    this.editNote = this.editNote.bind(this);
+    this.updateState = this.updateState.bind(this);
+  }
+
+  componentDidUpdate(){
+    console.log('__STATE__', this.state);
+  }
+
+  addNote(newNote){
+    let note = {
+      ...newNote,
+      id: uuid(),
+      editing: false,
+      completed: false,
+    };
+
+    this.setState(prevState => ({
+      notes: [...prevState.notes, note],
+    }));
+  };
+
+  deleteNote(noteID){
+    this.setState(prevState => ({
+      notes: prevState.notes.filter(note => note.id !== noteID),
+    }));
+  };
+  
+  editNote(newNote){
+    let updatedNote = {
+      ...newNote,
+      completed: false,
+    };
+    let newState = [...this.state.notes].map(note => {
+      return note.id === updatedNote.id ? note = updatedNote : note = note;
+    });
+    this.updateState(newState);
+  }
+
+  updateState(newState){
+    this.setState({notes: newState});
+  }
+
+  render(){
+    return (
+      <div className='app'>
+        <h1> ToDo List </h1>
+        <NoteForm addNote={this.addNote}/>
+        <NoteList 
+          allNotes={this.state.notes}
+          delete={this.deleteNote}
+          edit={this.editNote}
+          updateState={this.updateState}
+        />
+      </div>
+    );
+  }
+}
+
+export default App;
