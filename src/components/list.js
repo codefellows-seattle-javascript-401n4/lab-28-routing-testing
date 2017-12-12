@@ -1,14 +1,16 @@
 import React from 'react';
-import NoteForm from './note-form';
+// import NoteForm from './note-form';
+// import EditNote from './edit';
 
-const renderIf = (test, component) => {
-    return test ? component : undefined
+const renderIf = (test, component, alternative) => {
+    return test ? component : alternative
 }
 
 class NoteList extends React.Component{
     constructor(props){
         super(props);
         this.deleteNote = this.deleteNote.bind(this);
+        // this.handleEdit = this.handleEdit.bind(this);
     }
 
     deleteNote(e){
@@ -19,15 +21,22 @@ class NoteList extends React.Component{
         });
         this.props.handler(notes); 
     }
+    // handleDoubleClick(e){
+    //     this.setState()
+    // }
+    // handleEdit(){
+    //     let content = this.props.content;
+    //     this.setState({ content })
+    // }
     render() {
         return (
-            <div className="notes-list">{ 
+            <div className="notesList">{ 
                     renderIf(
                         this.props.app.state.noteArray.length, 
                         <table>
                             <thead>
                                 <tr>
-                                    <th colSpan='2'>Note</th>
+                                    <th colSpan='2'>Notes:</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,8 +48,10 @@ class NoteList extends React.Component{
                                         </tr>
                                     )
                                 }
+                
                             </tbody>
-                        </table>
+                        </table>,
+                        <h3> No Notes. Create one.</h3>
                     )
                 }
             </div>

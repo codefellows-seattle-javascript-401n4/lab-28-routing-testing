@@ -22,17 +22,14 @@ class NoteForm extends React.Component {
     handleNewNote(e) {
         e.preventDefault();
         console.log('CURRENT note:::::::', this.state)
-        // this.props.app.setState(currentState => ({noteArray: [...currentState.noteArray, this.state]}));
-        // console.log('props:::::',this.state);  
         this.props.handler(this.state);
     }
 
 
     render() {
         return (
-            <form onSubmit={this.handleNewNote}>
-                {/* <input placeholder="Note Title" type="text" name="name" onChange={this.handleChange} /> */}
-                <input placeholder="Note Body" type="textarea" name="content" onChange={this.handleChange} />
+            <form className = 'noteForm' onSubmit={this.handleNewNote}>
+                <input placeholder="Type Note" type="textarea" name="content" onChange={this.handleChange} />
                 <button type="submit">Add Note</button>
             </form>
         )

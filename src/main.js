@@ -11,7 +11,6 @@ import NoteForm from './components/note-form';
 import Footer from './components/footer';
 import NoteList from './components/list';
 
-
 class App extends React.Component{
     constructor(props) { 
         super(props);
@@ -54,8 +53,8 @@ class App extends React.Component{
               <Header appTitle="React App"/>
               <Navbar />
                 <main>
-                    <Route exact path='/editor' component={() => <NoteForm handler={this.updateNotes}/>} /> 
-                    <Route exact path='/' component={()=> <NoteList app={this.app()} handler={this.deleteNote}  />} />
+                    <Route exact path='/create' component={() => <NoteForm handler={this.updateNotes}/>} /> 
+                    <Route exact path='/' component={()=> <NoteList handler = {this.deleteNote} app={this.app()} />} />
                 </main>
               <Footer /> 
             </div>   
