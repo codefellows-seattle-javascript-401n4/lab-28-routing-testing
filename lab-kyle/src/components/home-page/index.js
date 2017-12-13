@@ -1,27 +1,28 @@
 'use strict';
+import '_home-page.scss';
 
 import React from 'react';
 import uuid from 'uuid/v1';
+import NoteCreateForm from '../note-create-form';
+import NoteList from '../note-list';
 
-class NoteCreateForm extends React.Component {
+class HomePage extends React.Component {
   constructor(props){
     super(props);
-    this.state{
-      id: uuid.v1();
-
-    }
+    this.createNote = this.createNote.bind(this);
   }
 
-  createNote(){
-    
+  createNote(note){
+
   }
 
   render(){
     return (
-      <div className="note-creator">
-
+      <div className="home-page">
+        <NoteCreateForm />
+        {/*<NoteList />*/}
       </div>
     )
   }
 }
-export default NoteCreateForm;
+export default HomePage;

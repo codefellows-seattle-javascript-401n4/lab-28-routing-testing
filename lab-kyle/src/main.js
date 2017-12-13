@@ -3,8 +3,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
-import NoteCreateForm from './components/note-create-form';
-import NoteList from './components/note-list';
+import HomePage from './components/home-page';
 
 class App extends React.Component{
   constructor(props){
@@ -22,16 +21,14 @@ class App extends React.Component{
       <header>
         <nav>
           <ul>
-            <li><a href="/note_list">Notes</a></li>
-            <li><a href="/note_create_form">Create a Note</a></li>
+            <li><a href="/home_page">Home</a></li>
           </ul>
         </nav>
       </header>
       <main className="main-content">
         <BrowserRouter>
           <section>
-            <Route exact path="/note_list" component={NoteList} />
-            <Route exact path="/note_create_form" component={NoteCreateForm} />
+            <Route exact path="/" component={HomePage} />
           </section>
         </BrowserRouter>
       </main>
