@@ -1,5 +1,5 @@
 'use strict';
-import '_home-page.scss';
+import './_home-page.scss';
 
 import React from 'react';
 import uuid from 'uuid/v1';
@@ -12,6 +12,10 @@ class HomePage extends React.Component {
     this.createNote = this.createNote.bind(this);
   }
 
+  componentDidUpdate(){
+    console.log('__APP_STATE_FROM_HOME__', this.props.app.state);
+  }
+
   createNote(note){
 
   }
@@ -19,6 +23,7 @@ class HomePage extends React.Component {
   render(){
     return (
       <div className="home-page">
+        <h2>Home Page!</h2>
         <NoteCreateForm />
         {/*<NoteList />*/}
       </div>

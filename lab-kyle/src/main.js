@@ -11,9 +11,16 @@ class App extends React.Component{
     this.state ={
 
     }
+    this.getApp = this.getApp.bind(this);
   }
   componentDidUpdate(){
     console.log('__STATE__', this.state);
+  }
+  getApp(){
+    return {
+      state: this.state,
+      setState: this.setState.bind(this),
+    }
   }
   render(){
     return (
@@ -21,14 +28,14 @@ class App extends React.Component{
       <header>
         <nav>
           <ul>
-            <li><a href="/home_page">Home</a></li>
+            <li><a href="/">Home</a></li>
           </ul>
         </nav>
       </header>
       <main className="main-content">
         <BrowserRouter>
           <section>
-            <Route exact path="/" component={HomePage} />
+            <Route exact path="/" component={() => <HomePage app={this.getApp()} />} />
           </section>
         </BrowserRouter>
       </main>
