@@ -20,7 +20,8 @@ class App extends React.Component{
         }
         this.app = this.app.bind(this);
         this.updateNotes =this.updateNotes.bind(this);
-        this.deleteNote = this.deleteNote.bind(this)
+        this.deleteNote = this.deleteNote.bind(this);
+        this.updateOne = this.updateOne.bind(this)
     }
 
     componentDidMount() {
@@ -31,6 +32,10 @@ class App extends React.Component{
         this.setState(currentState => ({noteArray: [...currentState.noteArray, props]}));
         console.log('after new note pushed:', this.state);  
 
+    }
+
+    updateOne(props){
+        this.setState({noteArray:props})
     }
 
     deleteNote(props){
@@ -52,7 +57,7 @@ class App extends React.Component{
               <Navbar />
                 <main>
                     <Route exact path='/create' component={() => <NoteForm handler={this.updateNotes}/>} /> 
-                    <Route exact path='/' component={()=> <NoteList handler = {this.deleteNote} app={this.app()} />} />
+                    <Route exact path='/' component={()=> <NoteList updateOne = {this.UpdateOne} handler = {this.deleteNote} app={this.app()} />} />
                 </main>
               <Footer /> 
             </div>   

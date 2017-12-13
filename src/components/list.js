@@ -1,6 +1,6 @@
 import React from 'react';
 // import NoteForm from './note-form';
-// import EditNote from './edit';
+import EditNote from './edit';
 
 const renderIf = (test, component, alternative) => {
     return test ? component : alternative
@@ -10,7 +10,7 @@ class NoteList extends React.Component{
     constructor(props){
         super(props);
         this.deleteNote = this.deleteNote.bind(this);
-        // this.handleUpdate = this.handleUpdate.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
     }
 
     deleteNote(e){
@@ -21,9 +21,13 @@ class NoteList extends React.Component{
         });
         this.props.handler(notes); 
     }
-    // handleUpdate(props){
-    //     his.props.app.setState(???????)
-    // }
+    handleUpdate(noteReturned){
+    let id = e.target.dataset['key'];
+    let notes = this.props.app.state.noteArray.map((note,i) => {
+        return note.id === noteReturned.id ? note.content = noteReturned.content : note = note
+    })
+    this.props.updateOne(notes);
+    }
    
     render() {
         return (
@@ -42,7 +46,7 @@ class NoteList extends React.Component{
                                         <tr key={i}>
                                             <td><a onClick={this.deleteNote} data-key={note.id} href="#">x</a></td>
                                             <td>{note.content}</td>
-                                            {/* <td EditNote handler={this.handleUpdate} app={this.props.app}/> */}
+                                            {/* <EditNote handler={this.handleUpdate} note={note}/> */}
                                         </tr>
                                     )
                                 }
