@@ -17,14 +17,17 @@ class HomePage extends React.Component {
   }
 
   createNote(note){
-
+    note.id = uuid();
+    this.props.app.setState(prevState => ({
+      notes: [...prevState.notes, note]
+    }))
   }
 
   render(){
     return (
       <div className="home-page">
         <h2>Home Page!</h2>
-        <NoteCreateForm />
+        <NoteCreateForm handleCreateNote={this.createNote} />
         {/*<NoteList />*/}
       </div>
     )
