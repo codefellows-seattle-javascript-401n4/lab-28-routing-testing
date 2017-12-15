@@ -28,7 +28,7 @@ class HomePage extends React.Component {
       <div className="home-page">
         <h2>Home Page!</h2>
         <NoteCreateForm handleCreateNote={this.createNote} />
-        {/*<NoteList />*/}
+        <NoteList notes={this.props.app.state.notes} />
       </div>
     )
   }
