@@ -10,6 +10,7 @@ class HomePage extends React.Component {
   constructor(props){
     super(props);
     this.createNote = this.createNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   }
 
   componentDidUpdate(){
@@ -20,6 +21,11 @@ class HomePage extends React.Component {
     note.id = uuid();
     this.props.app.setState(prevState => ({
       notes: [...prevState.notes, note]
+    }))
+  }
+  deleteNote(noteId){
+    this.props.app.setState(prevState => ({
+      notes: [...prevState.notes.filter(note => note.id !== noteId)]
     }))
   }
 

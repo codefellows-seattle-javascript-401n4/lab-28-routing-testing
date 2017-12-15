@@ -8,7 +8,7 @@ import HomePage from './components/home-page';
 class App extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
+    this.state =  {
       notes: [],
     }
     this.getApp = this.getApp.bind(this);
