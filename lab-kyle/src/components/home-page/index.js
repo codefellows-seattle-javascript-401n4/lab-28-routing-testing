@@ -5,6 +5,7 @@ import React from 'react';
 import uuid from 'uuid/v1';
 import NoteCreateForm from '../note-create-form';
 import NoteList from '../note-list';
+import Delete from '../note-create-form/note-item'
 
 class HomePage extends React.Component {
   constructor(props){
@@ -35,6 +36,7 @@ class HomePage extends React.Component {
         <h2>Home Page!</h2>
         <NoteCreateForm handleCreateNote={this.createNote} />
         <NoteList notes={this.props.app.state.notes} />
+        <Delete handleDeleteNote={this.deleteNote} />
       </div>
     )
   }
