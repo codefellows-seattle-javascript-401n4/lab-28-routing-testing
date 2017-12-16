@@ -6,6 +6,21 @@ import NoteCreateForm from '../src/components/noteCreateForm.js';
 import NoteList from '../src/components/noteList.js';
 import Note from '../src/components/noteItem.js';
 
+import '../src/style/main.scss';
+
+class Header extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return(
+      <div className="header">
+        <h1> Note Reminder for Dummies </h1>
+      </div>
+    );
+  }
+}
+
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -18,9 +33,9 @@ class App extends React.Component {
   }
 
   addNote(note){
-    let notey = this.state.notesList;
-    notey.push(note);
-    this.setState({notesList: this.state.notesList});
+    let notesList = [...this.state.notesList];
+    notesList.push(note);
+    this.setState({ notesList });
   }
 
   deleteNote(event,note){
@@ -32,6 +47,7 @@ class App extends React.Component {
     console.log(this.state)
     return(
       <div>
+        <Header />
         <NoteCreateForm addNote={this.addNote} list={this.state.notesList}/>
         <NoteList list={this.state.notesList} delete={this.deleteNote}/>
       </div>

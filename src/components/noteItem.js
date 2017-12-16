@@ -13,7 +13,6 @@ class Note extends React.Component {
 
 
   render(){
-    console.log(this.props.list);
     return (
       <div>
         <button type="submit" onClick={this.props.delete}> Delete! </button>

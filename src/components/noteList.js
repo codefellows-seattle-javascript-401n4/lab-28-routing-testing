@@ -17,6 +17,10 @@ class NoteList extends React.Component {
             this.props.list.map((note,i) =>
               <li key={note.id}>
                 {note.content}
+                <div className="date">
+                Posted on: 
+                {note.date}
+                </div>
                 <Note delete={this.props.delete}/>
               </li>
             )

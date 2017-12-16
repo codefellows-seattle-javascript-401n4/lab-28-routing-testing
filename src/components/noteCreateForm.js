@@ -15,6 +15,7 @@ class NoteCreateForm extends React.Component {
       editing: false,
       completed: false,
       content: '',
+      date: new Date().toLocaleString(),
     };
   }
 
@@ -24,18 +25,17 @@ class NoteCreateForm extends React.Component {
 
   onSubmit(event){
     event.preventDefault();
-    let noteyNotey = this.state;
-    this.props.addNote(noteyNotey);
-    this.setState({content: this.state.content, editing: false, completed: true, id:uuid()});
+    this.setState({content: '', editing: false, completed: true, id:uuid()});
+    this.props.addNote({...this.state});
   }
 
   render(){
-    console.log(this.props.list);
+    console.log(this.props.list, this.state, "___STATE__");
     return(
-      <div>
+      <div className="inputForm">
         <form onSubmit={this.onSubmit}>
-          <label> Enter Your Note:
-            <input type="text" value={this.state.content} onChange={this.onChange} />
+          <label> <h4>Enter Your Note </h4>
+            <input className="noteForm" type="text" value={this.state.content} onChange={this.onChange}/>
             <button type="submit">Submit!</button>
           </label>
         </form>
