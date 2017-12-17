@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create a new note with the content and editing false 1`] = `
+<div
+  className="inputForm"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+       
+      <h4>
+        Enter Your Note 
+      </h4>
+      <input
+        className="noteForm"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Submit!
+      </button>
+    </label>
+  </form>
+</div>
+`;
+
+exports[`create a new note with the content pizza, editing false, and completed true 1`] = `
+<div
+  className="inputForm"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+       
+      <h4>
+        Enter Your Note 
+      </h4>
+      <input
+        className="noteForm"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Submit!
+      </button>
+    </label>
+  </form>
+</div>
+`;
+
+exports[`should fail because of change in content 1`] = `
+<div
+  className="inputForm"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+       
+      <h4>
+        Enter Your Note 
+      </h4>
+      <input
+        className="noteForm"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Submit!
+      </button>
+    </label>
+  </form>
+</div>
+`;
+
+exports[`should fail with non unique ids 1`] = `
+<div
+  className="inputForm"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+       
+      <h4>
+        Enter Your Note 
+      </h4>
+      <input
+        className="noteForm"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Submit!
+      </button>
+    </label>
+  </form>
+</div>
+`;
+
+exports[`should fail with non unique ids 2`] = `
+<div
+  className="inputForm"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+       
+      <h4>
+        Enter Your Note 
+      </h4>
+      <input
+        className="noteForm"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Submit!
+      </button>
+    </label>
+  </form>
+</div>
+`;
+
+exports[`should pass with unique ids 1`] = `
+<div
+  className="inputForm"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+       
+      <h4>
+        Enter Your Note 
+      </h4>
+      <input
+        className="noteForm"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Submit!
+      </button>
+    </label>
+  </form>
+</div>
+`;
