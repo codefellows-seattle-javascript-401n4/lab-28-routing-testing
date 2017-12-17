@@ -1,6 +1,9 @@
 401 JS --  Lab 28 Todo
 ===
 
+## David's Description
+Everything completed. Component was designed differently, so testing for note creation and form submission occur together. 
+
 ## Submission Instructions
   * Work in a fork of this repository
   * Work in a branch on your fork
