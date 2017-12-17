@@ -37,7 +37,7 @@ class NoteCreateForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.saveNote}>
+            <form className="note-create" onSubmit={this.saveNote}>
                 Enter Your Note:
                 <input id="textInput" type="text" onChange={this.caputeNoteInput}/>
                 <input id="submit" type="submit" value="Submit" />
