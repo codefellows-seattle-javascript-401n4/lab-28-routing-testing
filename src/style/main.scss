@@ -1,0 +1,45 @@
+@import './_vars.scss';
+
+
+body {
+  background: $background;
+  color: $textColor;
+}
+
+.header {
+  color: $headerColor;
+  text-align: center;
+  font-family: georgia;
+  border: 2px solid black;
+  border-radius: 8px;
+}
+
+.noteForm {
+  border-radius: $inputBorderBox;
+  outline: none;
+  width: 300px;
+}
+
+li {
+  display: inline-block;
+  margin-left: $listItemMargin;
+  margin-right: $listItemMargin;
+  margin-bottom: $listItemMargin;
+  border: $listItemBorder;
+  padding: 40px;
+  width: 200px;
+  word-wrap: break-word;
+  background-image: url("/src/noteCardbackground.jpg");
+  font-family: Menlo;
+}
+
+.inputForm {
+  text-align: center;
+  margin: 30px;
+}
+
+.date {
+  margin: 30px;
+  font-size: $dateSize;
+  font-family: Monaco;
+}
