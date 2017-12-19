@@ -2,7 +2,6 @@
 import './_note-list.scss';
 
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 class NoteList extends React.Component{
   constructor(props){
@@ -10,13 +9,24 @@ class NoteList extends React.Component{
     this.state = {
       noteList: this.props.notes
     }
+    this.noteDelete = this.noteDelete.bind(this);
   }
+
+  noteDelete(e){
+    this.props.deleteNote(e.target.id)
+  }
+
   render(){
     return (
       <div className="note-list">
-        {this.state.noteList ?
+        {this.state.noteList.length  ?
           <ul>
-            {this.state.noteList.map(note => <li key={note.id}><Link to={`/${note.title}`}>{note.title}: {note.content}</Link></li>)}
+            {this.state.noteList.map(note =>
+              <li key={note.id}>
+              {note.title}:{note.content}
+                <button id={note.id} onClick={this.noteDelete}>Delete</button>
+              </li>
+            )}
           </ul>
           :
           <h2>No Notes</h2>

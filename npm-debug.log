@@ -1,0 +1,27 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/kylerichey/.nvm/versions/node/v6.11.3/bin/node',
+1 verbose cli   '/Users/kylerichey/.nvm/versions/node/v6.11.3/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'watch' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.3
+4 verbose config Skipping project config: /Users/kylerichey/.npmrc. (matches userconfig)
+5 verbose stack Error: missing script: watch
+5 verbose stack     at run (/Users/kylerichey/.nvm/versions/node/v6.11.3/lib/node_modules/npm/lib/run-script.js:151:19)
+5 verbose stack     at /Users/kylerichey/.nvm/versions/node/v6.11.3/lib/node_modules/npm/lib/run-script.js:61:5
+5 verbose stack     at /Users/kylerichey/.nvm/versions/node/v6.11.3/lib/node_modules/npm/node_modules/read-package-json/read-json.js:356:5
+5 verbose stack     at checkBinReferences_ (/Users/kylerichey/.nvm/versions/node/v6.11.3/lib/node_modules/npm/node_modules/read-package-json/read-json.js:320:45)
+5 verbose stack     at final (/Users/kylerichey/.nvm/versions/node/v6.11.3/lib/node_modules/npm/node_modules/read-package-json/read-json.js:354:3)
+5 verbose stack     at then (/Users/kylerichey/.nvm/versions/node/v6.11.3/lib/node_modules/npm/node_modules/read-package-json/read-json.js:124:5)
+5 verbose stack     at ReadFileContext.<anonymous> (/Users/kylerichey/.nvm/versions/node/v6.11.3/lib/node_modules/npm/node_modules/read-package-json/read-json.js:295:20)
+5 verbose stack     at ReadFileContext.callback (/Users/kylerichey/.nvm/versions/node/v6.11.3/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16)
+5 verbose stack     at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:367:13)
+6 verbose cwd /Users/kylerichey/codefellows/401/lab-assignments/my-forked-labs/lab-28-routing-testing
+7 error Darwin 14.5.0
+8 error argv "/Users/kylerichey/.nvm/versions/node/v6.11.3/bin/node" "/Users/kylerichey/.nvm/versions/node/v6.11.3/bin/npm" "run" "watch"
+9 error node v6.11.3
+10 error npm  v3.10.10
+11 error missing script: watch
+12 error If you need help, you may report this error at:
+12 error     <https://github.com/npm/npm/issues>
+13 verbose exit [ 1, true ]
