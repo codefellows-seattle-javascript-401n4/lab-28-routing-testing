@@ -1,4 +1,4 @@
-'use strict';
+
 import './_home-page.scss';
 
 import React from 'react';
