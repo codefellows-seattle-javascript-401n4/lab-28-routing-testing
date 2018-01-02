@@ -15,11 +15,11 @@ describe('<NoteCreateForm />', () => {
         expect(NoteCreateForm.state().content).toEqual(content);
     }
     
-    let NoteCreateForm = shallow(<NoteCreateForm handler={noteCreate} />);
+    let newNote = shallow(<NoteCreateForm handler={noteCreate} />);
     
-    NoteCreateForm.find("#title").simulate( 'change', { target: {name:"title", value:title} } );
-    NoteCreateForm.find("#content").simulate( 'change', { target: {name:"content", value:content} } );
-    NoteCreateForm.find("#submitButton").simulate( 'submit', { preventDefault:()=>{} } );
+    newNote.find("#title").simulate( 'change', { target: {name:"title", value:title} } );
+    newNote.find("#content").simulate( 'change', { target: {name:"content", value:content} } );
+    newNote.find("#submitButton").simulate( 'submit', { preventDefault:()=>{} } );
     
   });
   
