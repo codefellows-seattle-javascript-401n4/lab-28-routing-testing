@@ -11,7 +11,7 @@ class NoteList extends React.Component {
     }
     
     deleteNote(e) {
-        e.preventDefault();
+        // e.preventDefault();
         let id = e.target.dataset['key'];
         this.props.handler(id)
     }
