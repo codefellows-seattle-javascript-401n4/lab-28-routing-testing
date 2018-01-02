@@ -1,5 +1,4 @@
-
-
+import './_note-create-form.scss';
 import React from 'react';
 
 class NoteCreateForm extends React.Component{
@@ -21,14 +20,30 @@ class NoteCreateForm extends React.Component{
   }
   handleSubmit(e){
     e.preventDefault()
+    if(this.props.buttonType == 'Editing'){
+      this.props.handleSubmit(this.state, this.props.noteToUpdate.id)
+    } else {
     this.props.handleCreateNote(this.state)
+    }
   }
   render() {
     return (
       <form className="note-form" onSubmit={this.handleSubmit}>
-        <input type="text" name="title" placeholder="Title" value={this.state.title} onChange={this.handleChange}/>
+        <input
+          type="text"
+          name="title"
+          placeholder="Title"
+          value={this.state.title}
+          onChange={this.handleChange}
+        />
 
-        <input type="text" name="content" placeholder="Content" value={this.state.content} onChange={this.handleChange} />
+        <input
+          type="text"
+          name="content"
+          placeholder="Content"
+          value={this.state.content}
+          onChange={this.handleChange}
+        />
 
         <button type="submit">Submit Note</button>
       </form>
