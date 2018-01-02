@@ -2,6 +2,7 @@
 import './_note-list.scss';
 
 import React from 'react';
+import NoteEdit from '../note-edit';
 
 class NoteList extends React.Component{
   constructor(props){
@@ -10,10 +11,20 @@ class NoteList extends React.Component{
       noteList: this.props.notes
     }
     this.noteDelete = this.noteDelete.bind(this);
+    this.editNote = this.editNote.bind(this);
+    this.newEdit = this.newEdit.bind(this);
   }
 
   noteDelete(e){
     this.props.deleteNote(e.target.id)
+  }
+
+  editNote(updateNote){
+    this.props.edit(updateNote);
+  }
+
+  newEdit(e){
+    e.preventDefault();
   }
 
   render(){
@@ -25,6 +36,7 @@ class NoteList extends React.Component{
               <li key={note.id}>
               {note.title}:{note.content}
                 <button id={note.id} onClick={this.noteDelete}>Delete</button>
+                <button id={note.id} onClick={this.editNote}>Edit Note</button>
               </li>
             )}
           </ul>
