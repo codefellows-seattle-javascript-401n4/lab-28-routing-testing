@@ -1,0 +1,49 @@
+$primary: #000;
+$secondary: #333;
+$nav-background: #777;
+$highlight: #fff;
+
+body{
+  background-color: $secondary;
+  color:$highlight;
+  width: 500px;
+
+}
+
+nav{
+  margin:0;
+  padding:0;
+  width:89.66%;
+  background-color: $nav-background;
+  height: 200px;
+}
+
+ul{
+  padding-top: .3%;
+  padding-left: .3%;
+  padding-right: .4%;
+  display: flex;
+  list-style-type: none;
+}
+
+li{
+  height: 1.5em;
+  padding: .5em 1em;
+  background-color: $secondary;
+
+  ul{
+    display:none;
+  }
+
+  &:hover{
+    background-color: $primary;
+    color: $highlight;
+    display: block;
+    background-color: $secondary;
+
+
+    ul{
+    display: block;
+    }
+  }
+}
