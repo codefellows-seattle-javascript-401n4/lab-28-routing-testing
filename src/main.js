@@ -21,12 +21,18 @@ addNote = (note) => {
   });
 }
 
+deleteNote = (id) => {
+  this.setState({
+    notes: this.state.notes.filter(note => note.id !== id)
+  })
+}
+
   render() {
     return (
       <div>
         <h1>'React is confusing'</h1>
         <CreateForm addNote={this.addNote} />
-        <NoteList notes={this.state.notes}/>
+        <NoteList notes={this.state.notes} deleteNote={this.deleteNote}/>
       </div>
     )
   }

@@ -18,13 +18,14 @@ submitNote = (e) => {
     editing: true,
     completed: false
   }
+
   this.props.addNote(newNote);
   console.log('submitNote:', newNote);
 }
 //Capture input data, send to parent as a note.
 captureChange = (e) => {
   this.setState({
-    [e.target.id]: e.target.value
+    content: e.target.value
   });
 }
   render() {
